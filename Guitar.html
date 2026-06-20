@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Long Until It Days - Auto Scroll</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            padding: 20px;
+            padding-bottom: 100px; /* Ruang agar teks bawah tidak tertutup kontrol */
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #4fc3f7;
+        }
+        .meta-info {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 60px;
+        }
+        pre {
+            font-size: 1.1em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .chord {
+            color: #ffb74d;
+            font-weight: bold;
+        }
+        /* Style untuk Menu Kontrol Auto Scroll */
+        #control-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(34, 34, 34, 0.95);
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #444;
+            z-index: 9999;
+        }
+        button {
+            background: #4fc3f7;
+            color: #121212;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #81d4fa;
+        }
+        #speed-indicator {
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 0.9em;
+            min-width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>How Long Until It Days</h1>
+    <div class="meta-info">Martin Carlberg — Versi Kustom Final</div>
+    <hr style="border-color: #444;">
+
+    <pre>
+<span class="chord">[Intro]</span>
+<span class="chord">F#m    E    D    A</span>
+<span class="chord">F#m    E    D    A</span>
+
+<span class="chord">[Verse 1]</span>
+        <span class="chord">F#m</span>               <span class="chord">E</span>
+Let's say it's a boat
+                <span class="chord">D</span>                 <span class="chord">A</span>
+That we're all in together
+         <span class="chord">F#m</span>               <span class="chord">E</span>
+That barely stays afloat
+            <span class="chord">D</span>                 <span class="chord">A</span>       <span class="chord">E7</span>
+While we all discuss the weather
+
+<span class="chord">[Chorus]</span>
+<span class="chord">E</span>           <span class="chord">F#m</span>
+How long can we all go on
+                   <span class="chord">A</span>     <span class="chord">E</span>  
+Before we change our ways
+<span class="chord">E</span>                     <span class="chord">D</span>
+How long 'til the break of dawn
+<span class="chord">A</span>                 <span class="chord">E</span>
+How long 'til it days
+<span class="chord">D</span>                 <span class="chord">A</span>
+How long 'til it days
+
+
+<span class="chord">[Verse 2]</span>
+        <span class="chord">F#m</span>               <span class="chord">E</span>
+Let's say it's a bed
+       <span class="chord">D</span>                     <span class="chord">A</span>
+We all know is on fire
+       <span class="chord">F#m</span>               <span class="chord">E</span>
+Pharaoh's spin our heads
+            <span class="chord">D</span>                 <span class="chord">A</span>       <span class="chord">E7</span>
+But no one calls out liar
+
+<span class="chord">[Chorus]</span>
+<span class="chord">E</span>           <span class="chord">F#m</span>
+How long can we all go on
+                   <span class="chord">A</span>     <span class="chord">E</span>
+Before we change our ways
+<span class="chord">E</span>                     <span class="chord">D</span>
+How long 'til the break of dawn
+<span class="chord">A</span>                 <span class="chord">E</span>
+How long 'til it days
+<span class="chord">D</span>                 <span class="chord">A</span>
+How long 'til it days
+
+
+<span class="chord">[Bridge / Outro Mood]</span>
+<span class="chord">F#m    E    D    A</span> 
+<span class="chord">F#m    E    D    A</span>
+
+
+<span class="chord">[Chorus / Outro]</span>
+<span class="chord">E</span>           <span class="chord">F#m</span>
+How long can we all go on
+                   <span class="chord">A</span>     <span class="chord">E</span>
+Before we change our ways
+<span class="chord">E</span>                     <span class="chord">D</span>
+How long 'til the break of dawn
+<span class="chord">A</span>                 <span class="chord">E</span>
+How long 'til it days
+<span class="chord">D</span>                 <span class="chord">A</span>
+How long 'til it days
+<span class="chord">E</span>                     <span class="chord">D</span>
+How long 'til the break of dawn
+<span class="chord">A</span>                 <span class="chord">E</span>
+How long 'til it days
+<span class="chord">D</span>                 <span class="chord">A</span>
+How long 'til it days...
+    </pre>
+
+    <!-- Panel Kontrol Floating -->
+    <div id="control-panel">
+        <button id="btn-slow" onclick="changeSpeed(-1)">- Slow</button>
+        <button id="btn-play" onclick="toggleScroll()">Play</button>
+        <button id="btn-fast" onclick="changeSpeed(1)">Fast +</button>
+        <div id="speed-indicator">Spd: 1</div>
+    </div>
+
+    <script>
+        let scrollInterval;
+        let isScrolling = false;
+        let speed = 1; // Menggunakan bilangan bulat (default kecepatan 1)
+        const intervalTime = 77; // Interval waktu (77ms) agar pergerakan terlihat smooth
+
+        function toggleScroll() {
+            const btn = document.getElementById('btn-play');
+            if (isScrolling) {
+                clearInterval(scrollInterval);
+                btn.innerText = "Play";
+                btn.style.background = "#4fc3f7";
+                isScrolling = false;
+            } else {
+                // Menjalankan auto scroll
+                scrollInterval = setInterval(function() {
+                    window.scrollBy({
+                        top: speed,
+                        behavior: 'auto' // Langsung geser tanpa efek lambat bawaan browser agar stabil
+                    });
+                }, intervalTime);
+                
+                btn.innerText = "Pause";
+                btn.style.background = "#ff7043"; // Berubah warna orange saat aktif
+                isScrolling = true;
+            }
+        }
+
+        function changeSpeed(delta) {
+            // Batas kecepatan minimal 1 (pelan) dan maksimal 10 (cepat)
+            speed = Math.max(1, Math.min(10, speed + delta));
+            document.getElementById('speed-indicator').innerText = "Spd: " + speed;
+            
+            // Jika status sedang berjalan, restart interval agar perubahan kecepatan instan terasa
+            if (isScrolling) {
+                clearInterval(scrollInterval);
+                scrollInterval = setInterval(function() {
+                    window.scrollBy(0, speed);
+                }, intervalTime);
+            }
+        }
+    </script>
+</body>
+</html>
